@@ -24,7 +24,7 @@ namespace CSExercises
             double inputDbl = Convert.ToDouble(inputStr);
 
             //YOUR CODE HERE
-
+            Console.WriteLine("Output with 2 decimal points {0:0.00}", inputDbl);
         }
 
     }

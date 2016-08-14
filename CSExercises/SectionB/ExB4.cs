@@ -15,13 +15,17 @@ namespace CSExercises
         public static void Main(string[] args)
         {
             //YOUR CODE HERE
+            Console.Write("Please input centigrade temperature: ");
+            double input = Convert.ToDouble(Console.ReadLine());
 
+            Console.WriteLine("The Fahrenheit temperature is {0:0.##}", ConvertToFahrenheit(input));
         }
 
         public static double ConvertToFahrenheit(double c)
         {
             //YOUR CODE HERE - convert celcius to fahrenheit
-            return 0;
+            double result = 1.8 * c + 32;
+            return result;
 
         }
     }

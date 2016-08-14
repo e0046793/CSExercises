@@ -14,13 +14,16 @@ namespace CSExercises
         public static void Main(string[] args)
         {
             //YOUR CODE HERE
+            Console.Write("Please input a number: ");
+            double input = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Square roof of {0} is {1:0.###}", input, SQRT(input));
         }
 
         public static double SQRT(double x)
         {
             //YOUR CODE HERE: return the square root of x
-            return 0;
-
+            return Math.Sqrt(x);
         }
     }
 }

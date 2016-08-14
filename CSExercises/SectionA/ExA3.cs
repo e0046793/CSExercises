@@ -25,8 +25,8 @@ namespace CSExercises
         public static int square(int x)
         {
             //PUT YOUR CODE HERE
-            return 0;
-
+            int result = x * x;
+            return result;
         }
     }
 }
