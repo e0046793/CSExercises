@@ -14,6 +14,8 @@ namespace CSExercises
     {
         public static void Main(string[] args)
         {
+            String title = "";
+
             Console.Write("Please enter your name: ");
             string name = Console.ReadLine();
             Console.Write("Please enter your gender (M/F): ");
@@ -22,6 +24,20 @@ namespace CSExercises
             int age = Convert.ToInt32(Console.ReadLine());
 
             //YOUR CODE HERE
+            if (string.Equals(gender, "M", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(gender, "Male", StringComparison.OrdinalIgnoreCase))
+            {
+                title = "Mr. ";
+                if (40 <= age) title = "Uncle ";
+            }
+            else if (string.Equals(gender, "F", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(gender, "Female", StringComparison.OrdinalIgnoreCase))
+            {
+                title = "Ms. ";
+                if (40 <= age) title = "Aunty ";
+            }
+
+            Console.WriteLine("Good Morning " + title + name);
         }
     }
 }

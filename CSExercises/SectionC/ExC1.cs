@@ -16,6 +16,11 @@ namespace CSExercises
             string gender = Console.ReadLine();
 
             //YOUR CODE HERE
+            if (string.Equals(gender, "M", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(gender, "Male", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine("Good Morning Mr. " + name);
+            }
         }
     }
 }

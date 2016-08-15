@@ -30,18 +30,77 @@ namespace CSExercises
         public static void Main(string[] args)
         {
             //YOUR CODE HERE - get user input, call the function and return the discounted price
+            //bool isValidCode = false;
+            bool isValidQtyofTV = false;
+            bool isValidQtyofDVD = false;
+            bool isValidQtyofMP3 = false;
+            bool stop = false;
 
+            int tvQty = 0;
+            int dvdQty = 0;
+            int mp3Qty = 0;
 
+            string productCode = "";
 
+            while (false == stop)
+            {
+                Console.Write("Enter product code (TV | DVD | MP3): ");
+                productCode = Console.ReadLine();
+
+                switch (productCode)
+                {
+                    case "TV":
+                        while (false == isValidQtyofTV)
+                        {
+                            Console.Write("Input quantity of TV: ");
+                            isValidQtyofTV = int.TryParse(Console.ReadLine(), out tvQty);
+                        }
+                        break;
+
+                    case "DVD":
+                        while (false == isValidQtyofDVD)
+                        {
+                            Console.Write("Input quantity of DVD: ");
+                            isValidQtyofDVD = int.TryParse(Console.ReadLine(), out dvdQty);
+                        }
+                        break;
+
+                    case "MP3":
+                        while (false == isValidQtyofMP3)
+                        {
+                            Console.Write("Input quantity of MP3: ");
+                            isValidQtyofMP3 = int.TryParse(Console.ReadLine(), out mp3Qty);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+                if (true == isValidQtyofTV && true == isValidQtyofDVD && true == isValidQtyofMP3)
+                    stop = true;
+            }
+
+            Console.WriteLine("Total price: {0:c}", CalculateTotalPrice(tvQty, dvdQty, mp3Qty));
         }
 
         public static double CalculateTotalPrice(int tvQty, int dvdQty, int mp3Qty)
         {
             //YOUR CODE HERE
-            return 0;
+            double totalPrice = tvQty * 900 + dvdQty * 500 + mp3Qty * 700;
 
+            if (5000 < totalPrice 
+                && totalPrice < 10000
+                && ((0 < tvQty) || (0 < dvdQty)))
+            {
+                totalPrice = totalPrice * 90 / 100;
+            }
+            else if (10000 < totalPrice
+                && ((0 < tvQty) || (0 < dvdQty)))
+            {
+                totalPrice = totalPrice * 85 / 100;
+            }
 
-
+            return totalPrice;
         }
     }
 }

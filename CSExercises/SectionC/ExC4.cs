@@ -20,20 +20,55 @@ namespace CSExercises
     {
         public static void Main(string[] args)
         {
+            // Define variables
+            double distance = 0.0;
 
-            //Your code here
+            // Get the input
+            bool isValidInput = false;
 
+            while (false == isValidInput)
+            { 
+                Console.Write("Please enter your distance (kilometers): ");
+                bool isConvertedInput = double.TryParse(Console.ReadLine(), out distance);
 
+                if (false == isConvertedInput)
+                {
+                    Console.WriteLine("\nPlease input numeric!!!\n");
+                }
+                else
+                {
+                    if (distance < 0) Console.WriteLine("\nSystem accepts only positive number!!!\n");
+                    else isValidInput = true;
 
+                }
+            }
+
+            double roundedValue = 10.0;
+            distance = Math.Ceiling(distance * roundedValue) / roundedValue;
+            Console.WriteLine("Distance travelled after rounded: {0}", distance);
+            double fare = CalculateFare(distance);
+            Console.WriteLine("Total fare: {0}", fare);
         }
 
         public static double CalculateFare(double distance)
         {
-            //YOUR CODE HERE
-            return 0;
+            double baseFare = 2.40; //Have to pay first 0.5km
+            double totalFare;
 
+            if (0.5 >= distance)
+            {
+                totalFare = baseFare;
+            }
+            else if ((distance - 0.5) <= 8.5)
+            {
+                totalFare = baseFare + 0.04 * (distance - 0.5) * 10;
+            }
+            else
+            {
+                totalFare = baseFare + 0.04 * 8.5 * 10 + 0.05 * (distance - 9) * 10;
+            }
 
-
+            return totalFare;
         }
     }
 }
