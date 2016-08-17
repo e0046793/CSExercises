@@ -50,12 +50,15 @@ namespace CSExercises
             for (int row = 0; row < 12; row++)
             {
                 Console.WriteLine("Total marks for student {0}: {1}",row,total[row]);
-                Console.WriteLine("Avg marks for student {0}: {1}", row, avg[row]);
+                Console.WriteLine("Avg marks for student {0}: {1:0.##}", row, avg[row]);
+                Console.WriteLine("-----------------------------------------------------");
             }
+
+            Console.WriteLine("-----------------------------------------------------");
 
             for (int col = 0; col < 4; col++)
             {
-                Console.WriteLine("Avg marks for subject {0}: {1}", col, avgPerSubject[col]);
+                Console.WriteLine("Avg marks for subject {0}: {1:0.##}", col, avgPerSubject[col]);
             }
 
         }
@@ -63,9 +66,18 @@ namespace CSExercises
         public static int[] CalculateTotalMarks(int[,] marks)
         {
 
-            int[] total = new int[12];
+            int[] total = new int[marks.GetLength(0)];
 
-            //YOUR CODE HERE
+            // Get mark array for each student
+            for (int i = 0; i < marks.GetLength(0); ++i)
+            {
+                // From mark array, get particular mark for calculating total mark
+                for (int j = 0; j < marks.GetLength(1); ++j)
+                {
+                    total[i] += marks[i, j];
+                }
+            }
+
             return total;
 
 
@@ -73,13 +85,24 @@ namespace CSExercises
 
         public static double[] CalculateStudentAverage(int[,] marks)
         {
-            double[] avg = new double[12];
+            double[] avg = new double[marks.GetLength(0)];
+            
+            // Get mark array for each student
+            for (int i = 0; i < marks.GetLength(0); ++i)
+            {
+                // Create total variable for saving student's total mark 
+                double total = 0.0;
+                // From mark array, get particular mark for calculating total mark
+                for (int j = 0; j < marks.GetLength(1); ++j)
+                {
+                    total += marks[i, j];
+                }
 
-            //YOUR CODE HERE
+                // Calculating average mark for a student
+                avg[i] = total / marks.GetLength(1);
+            }
+            
             return avg;
-
-
-
         }
 
         public static double[] CalculateSubjectAverage(int[,] marks)
@@ -87,12 +110,19 @@ namespace CSExercises
             double[] avgPerSubject = new double[4];
 
             //YOUR CODE HERE
+            for (int i = 0; i < marks.GetLength(1); ++i)
+            {
+                double total = 0.0;
+                for (int j = 0; j < marks.GetLength(0); ++j)
+                {
+                    total += marks[j, i];
+                }
+
+                // Calculating average mark for a student
+                avgPerSubject[i] = total / marks.GetLength(0);
+            }
+
             return avgPerSubject;
-
-
-
-
-
         }
 
         public static double[] CalculateVariance(int[,] marks)

@@ -12,8 +12,15 @@ namespace CSExercises
             //YOUR CODE HERE
             //Hint: you can use ExE4.IsPerfectNumber() method here
 
+            Console.WriteLine("Perfect numbers from 1 to 1000");
 
-
+            for (int counter = 1; counter <= 1000; counter++)
+            {
+                if (ExE4.IsPerfectNumber(counter))
+                {
+                    Console.WriteLine(counter);
+                }
+            }
         }
     }
 }

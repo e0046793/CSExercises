@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace CSExercises
 {
@@ -32,11 +33,8 @@ namespace CSExercises
         public static bool IsPalindrome(string phrase)
         {
             //YOUR CODE HERE
-            return false;
-
-
-
-
+            string newString = phrase.ToUpper().Replace(" ", string.Empty);
+            return newString.SequenceEqual(newString.Reverse()); 
         }
     }
 }

@@ -15,7 +15,15 @@ namespace CSExercises
             //Hint: you can call ExE3.IsPrime method (from previous exercise) 
             //to check whether a number is a prime or not.
 
+            Console.WriteLine("Prime numbers from 5 to 10000");
 
+            for (int counter = 5; counter <= 10000; counter++)
+            {
+                if (ExE3.IsPrime(counter))
+                {
+                    Console.WriteLine(counter);
+                }
+            }
         }
     }
 }

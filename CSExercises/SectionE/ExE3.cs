@@ -34,9 +34,19 @@ namespace CSExercises
         public static bool IsPrime(int n)
         {
             //YOUR CODE HERE
-            return false;
+            if (1 == n) return false;
+            if (0 == n % 2) return false;
+            if (0 == n % 3) return false;
+            if (2 == n || 3 == n) return true;
 
+            int boundary = (int)Math.Floor(Math.Sqrt(n));
 
+            for (int i = 2; i <= boundary; ++i)
+            {
+                if (n % i == 0) return false;
+            }
+
+            return true;
         }
     }
 }

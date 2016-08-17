@@ -31,9 +31,18 @@ namespace CSExercises
         public static bool IsPerfectNumber(int n)
         {
             //YOUR CODE HERE
-            return false;
+            int sum = 0;
+            int i = 1;
 
+            while (i < n)
+            {
+                if (n % i == 0)
+                    sum += i;
 
+                ++i;
+            }
+
+            return sum == n;
         }
     }
 }

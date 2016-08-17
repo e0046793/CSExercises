@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace CSExercises
 {
@@ -25,7 +26,7 @@ namespace CSExercises
             int[] sales = new int[12];
             for (int n = 0; n < 12; n++)
             {
-                Console.Write("Enter sales for month {0}: " , n);
+                Console.Write("Enter sales for month {0}: " , n + 1);
                 sales[n] = Convert.ToInt32(Console.ReadLine());
             }
 
@@ -35,6 +36,7 @@ namespace CSExercises
 
             CalculateMinMaxAvg(sales, ref min, ref max, ref avg);
 
+            Console.WriteLine("-----------------------------------");
             Console.WriteLine("Maximum Sales: " + max);
             Console.WriteLine("Minimum Sales: " + min);
             Console.WriteLine("Average Sales: " + avg);
@@ -44,8 +46,17 @@ namespace CSExercises
         {
             //YOUR CODE HERE
             //Assign the result to minMonth, maxMonth and avg variable/parameter accordingly
+            int maxValue = sales.Max();
+            maxMonth = sales.ToList().IndexOf(maxValue) + 1;
 
+            int minValue = sales.Min();
+            minMonth = sales.ToList().IndexOf(minValue) + 1;
 
+            int sum = 0;
+            foreach (int monthValue in sales)
+                sum += monthValue;
+
+            avg = sum / sales.Length;
         }
 
         public static int CalculateMinMonth(int[] sales)

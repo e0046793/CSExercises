@@ -22,28 +22,53 @@ namespace CSExercises
             int n = Convert.ToInt32(Console.ReadLine());
 
             int fact1 = CalculateFactorialInc(n);
-            Console.WriteLine(fact1);
+            Console.WriteLine("Increase loop - {0}", fact1);
 
             int fact2 = CalculateFactorialDec(n);
-            Console.WriteLine(fact2);
+            Console.WriteLine("Decrease loop - {0}", fact2);
+
+            int fact3 = CalculateFactorialRecursive(n);
+            Console.WriteLine("Recursive loopback - {0}", fact3);
         }
 
         public static int CalculateFactorialInc(int n)
         {
             //YOUR CODE HERE
-            return 0;
+            if (1 >= n)
+                return 1;
+            else
+            {
+                int factorial = 1;
 
-
+                for (int i = 1; i <= n; i++)
+                {
+                    factorial *= i;
+                }
+                return factorial;
+            }
         }
 
         public static int CalculateFactorialDec(int n)
         {
             //YOUR CODE HERE
-            return 0;
+            if (1 >= n)
+                return 1;
+            else
+            {
+                int factorial = 1;
 
-
+                for (int i = n; i >= 1; --i)
+                {
+                    factorial *= i;
+                }
+                return factorial;
+            }
         }
 
-
+        public static int CalculateFactorialRecursive(int n)
+        {
+            if (n < 1) return 1;
+            else  return n * CalculateFactorialRecursive(n - 1);
+        }
     }
 }

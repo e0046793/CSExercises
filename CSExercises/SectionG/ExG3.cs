@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace CSExercises
 {
@@ -21,10 +22,16 @@ namespace CSExercises
 
         public static string ToTitleCase(string phrase)
         {
-            //YOUR CODE HERE
-            return null;
+            //string s = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(phrase.ToLower());
+            char[] a = phrase.ToLower().ToCharArray();
 
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] = i == 0 || a[i - 1] == ' ' ? char.ToUpper(a[i]) : a[i];
 
+            }
+
+            return new string(a);
         }
     }
 }

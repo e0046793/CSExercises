@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace CSExercises
 {
@@ -20,12 +21,20 @@ namespace CSExercises
         public static void Main(string[] args)
         {
             //YOUR CODE HERE
+            string[] arrName = { "John", "Venkat", "Mary", "Victor", "Betty" };
+            int[] arrMark = { 63, 29, 75, 82, 55 };
 
-
-
-
-
-
+            int[] arrSortedMark = arrMark.OrderByDescending(c => c).ToArray();
+            for (int i = 0; i < arrMark.Length; ++i)
+            {
+                Console.Write("{0}\t", arrSortedMark[i]);
+            }
+            Console.WriteLine();
+            Array.Sort(arrName, (x, y) => String.Compare(x, y));
+            for (int i = 0; i < arrName.Length; ++i)
+            {
+                Console.Write("{0}\t", arrName[i]);
+            }
         }
     }
 }
